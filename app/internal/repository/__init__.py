@@ -12,3 +12,23 @@ Note:
     The repository must contain a minimum set of instructions for interacting with the
     target database.
 """
+
+from dependency_injector import containers, providers
+
+from app.internal.repository import redis
+
+__all__ = ["Repositories"]
+
+
+class Repositories(containers.DeclarativeContainer):
+    """Container for repositories.
+
+    Attributes:
+        rediss (providers.Container): Container for redis repositories.
+
+    Notes:
+        If you want to add a new repository,
+        you **must** add it to this container.
+    """
+
+    rediss = providers.Container(redis.Repositories)
