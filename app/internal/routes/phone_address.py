@@ -4,6 +4,8 @@ from dependency_injector.wiring import Provide, inject
 from fastapi import Depends, status
 
 from app.internal.routes import phone_address
+from app.internal.services import Services
+from app.internal.services.phone_address import PhoneAddressService
 from app.pkg import models
 
 
